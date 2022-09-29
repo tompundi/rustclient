@@ -1,3 +1,5 @@
+use std::option::Option;
+
 fn main() {
     // let string = String::from("127.0.0.1:8080");
     // let string_slice = &string[10..];
@@ -9,10 +11,10 @@ fn main() {
     // dbg!(string_borrow);
     // dbg!(string_literal);
 
-    let get = Method::GET("abcd".to_string());
-    let post = Method::POST;
-    let delete = Method::DELETE(100);
-    let put = Method::PUT;
+    // let get = Method::GET("abcd".to_string());
+    // let post = Method::POST;
+    // let delete = Method::DELETE(100);
+    // let put = Method::PUT;
 
 
     let server = Server::new("127.0.0.1:8080".to_string());
@@ -40,13 +42,13 @@ impl Server {
 
 struct Request {
     path: String,
-    query_string: String,
+    query_string: Option<String>,
     method: Method,
 }
 
 enum Method {
-    GET(String),
+    GET,
     POST,
     PUT,
-    DELETE(u64),
+    DELETE,
 }
