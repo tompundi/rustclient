@@ -10,6 +10,7 @@ use std::fmt::Formatter;
 use std::fmt::Result as FormatterResult;
 use super::{QueryString, QueryStringValue};
 
+#[derive(Debug)]
 pub struct Request<'buf> {
     path: &'buf str,
     query_string: Option<QueryString<'buf>>,
@@ -59,7 +60,6 @@ fn get_next_word(request: &str) -> Option<(&str,&str)> {
 
     None
 }
-
 
 pub enum ParseError {
     InvalidRequest,
